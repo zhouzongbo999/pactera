@@ -1,4 +1,4 @@
-package com.pactera.model;
+
 
 import lombok.Data;
 
