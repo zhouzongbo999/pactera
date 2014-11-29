@@ -7,7 +7,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.Socket;
 import java.net.UnknownHostException;
-import java.util.Iterator;
 
 public class Client {
 	private Socket socket;
@@ -24,16 +23,12 @@ public class Client {
 			e.printStackTrace();
 		}
 	}
-	public static void main(String [] args){
-		Client client=new Client();
-	}
 	private class SendMessage implements Runnable{
 
-		@Override
 		public void run() {
 			// TODO Auto-generated method stub
 			String s="tony test";
-			String receive="";
+//			String receive="";
 			try {
 				BufferedReader reader=new BufferedReader(new InputStreamReader(System.in));
 				DataOutputStream out=new DataOutputStream(socket.getOutputStream());
@@ -64,7 +59,6 @@ public class Client {
 		}}
 	private class ReceiveMessage implements Runnable{
 
-		@Override
 		public void run() {
 			// TODO Auto-generated method stub
 			try {

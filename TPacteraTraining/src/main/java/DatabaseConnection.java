@@ -1,7 +1,6 @@
 
 
 import java.sql.DriverManager;
-import java.sql.SQLException;
 
 import com.mysql.jdbc.Connection;
 
@@ -16,13 +15,14 @@ public class DatabaseConnection {
 	}
 	public static Connection createConnection(){
 		String username="root";
-		String password="admin";
+//		String password="admin";
+		String password="123";
 		String url="jdbc:mysql://localhost:3306/test";
 		Connection conn = null;
 		try {
 			conn=(Connection) DriverManager.getConnection(url, username, password);
 			System.out.println("connection success!");
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

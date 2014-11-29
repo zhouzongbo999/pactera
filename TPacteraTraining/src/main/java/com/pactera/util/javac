@@ -1,3 +1,0 @@
-javac com\tony\socket\*.java
-java com.tony.socket.Server
-监听的时候需要用到线程，因为监听阻塞了主线程。

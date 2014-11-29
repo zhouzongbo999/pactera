@@ -29,8 +29,19 @@ public class EmployeeDao {
 		}
 	}
 	public List<Employee> retrieve(){
+		List<Employee> listEmployee=new ArrayList<Employee>();
+		if(conn==null){
+			System.out.println("xxx EmployeeDao can't connect to Database");
+			
+			Employee emp=new Employee(001,"name","code");
+			Employee emp2=new Employee(002,"tony","code2");
+			Employee emp3=new Employee(003,"zhou","code3");
+			listEmployee.add(emp);
+			listEmployee.add(emp2);
+			listEmployee.add(emp3);
+			return listEmployee;
+		}
 		String sql="select * from employee";
-		List<Employee> list=new ArrayList();
 		try {
 			ps=(PreparedStatement) conn.prepareStatement(sql);
 			ResultSet rs=ps.executeQuery();
@@ -39,13 +50,52 @@ public class EmployeeDao {
 				emp.setId(rs.getInt("id"));
 				emp.setName(rs.getString("name"));
 				emp.setCode(rs.getString("code"));
-				list.add(emp);
+				listEmployee.add(emp);
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			
 		}
-		
-		return list;
+		return listEmployee;
+	}
+	public Employee retrieveById(String id){
+		String sql="select * from employee where id = ?";
+		Employee employee=new Employee();
+		try {
+			ps=(PreparedStatement) conn.prepareStatement(sql);
+			ps.setString(1, id);
+			System.out.println("EmployeeDao "+sql);
+			ResultSet rs=ps.executeQuery();
+			
+			if(rs.next()){
+				employee.setId(rs.getInt("id"));
+				employee.setName(rs.getString("name"));
+				employee.setCode(rs.getString("code"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			
+		}
+		return employee;
+	}
+	public boolean updateEmployee(Employee emp){
+		String sql="update employee set name=?,code=? where id=?";
+		System.out.println("EmployeeDao "+emp.getName());
+		try {
+			ps=(PreparedStatement) conn.prepareStatement(sql);
+			ps.setString(1, emp.getName());
+			ps.setString(2, emp.getCode());
+			ps.setString(3, emp.getId() + "");
+			System.out.println("EmployeeDao "+ps.getPreparedSql());
+			return ps.execute();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			
+		}
+		return false;
 	}
 }
