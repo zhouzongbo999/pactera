@@ -25,7 +25,7 @@ public class EmployeeCtrl {
 	@RequestMapping("/addEmployee")
 	public String addEmployee(Employee emp) {
 		employeeService.addEmployee(emp);
-		return "redirect:Message.jsp";
+		return "redirect:views/Message.jsp";
 	}
 	
 	@RequestMapping("/getEmployees")

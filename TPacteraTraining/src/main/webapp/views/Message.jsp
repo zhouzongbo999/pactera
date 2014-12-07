@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	Successfully Saved!<a href="GetEmployees.sp">Show Employees</a>
+	Successfully Saved!<a href="http://localhost:8080/TPacteraTraining/getEmployees">Show Employees</a>
 </body>
 </html>
