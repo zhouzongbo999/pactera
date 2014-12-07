@@ -108,6 +108,7 @@
 	<build>
 		<finalName>TPacteraTraining</finalName>
 		<plugins>
+		<!-- 指定java compiler version -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -118,6 +119,7 @@
 					<encoding>${project.build.encoding}</encoding>
 				</configuration>
 			</plugin>
+			
 		</plugins>
 	</build>
 </project>
