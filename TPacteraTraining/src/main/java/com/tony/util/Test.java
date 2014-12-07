@@ -1,21 +1,12 @@
 package com.tony.util;
-import java.util.List;
-
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-
-import com.tony.config.MysqlConfig;
-import com.tony.dao.EmployeeDao;
-import com.tony.model.Employee;
-import com.tony.service.EmployeeService;
-import com.tony.service.IEmployeeService;
+import com.tony.config.DatabaseConnection;
 
 public class Test {
 	
 	public static void main(String[] args){
-//		DatabaseConnection dc=new DatabaseConnection();
-//		dc.createConnection();
-//		DatabaseConnection.createConnection();
+		DatabaseConnection dc=new DatabaseConnection();
+		dc.createConnection();
+		DatabaseConnection.createConnection();
 		
 //		Employee employee=new Employee(0, "tony", "111");
 //		IEmployeeService iEmployeeService=new EmployeeService();

@@ -14,21 +14,31 @@ import com.tony.dao.EmployeeDao;
 @Configuration
 //@ComponentScan
 //@Component
-@PropertySource("mysql.properties")
+@PropertySource("classpath:mysql.properties")
 public class MysqlConfig {
 	@Autowired
     Environment env;
 	
+	static{
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 	@Bean
 	public Connection connection(){
+		Connection conn=null;
 		try {
-			System.out.println("begin connect");
-			return (Connection) DriverManager.getConnection(env.getProperty("url"), env.getProperty("name"), env.getProperty("password"));
+			conn= (Connection) DriverManager.getConnection(env.getProperty("url"), env.getProperty("name"), env.getProperty("password"));
+			System.out.println("MysqlConfig connection");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return null;
+		return conn;
 	}
 	@Bean
 	public EmployeeDao employeeDao(){

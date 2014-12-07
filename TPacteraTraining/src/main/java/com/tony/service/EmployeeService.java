@@ -4,12 +4,12 @@ package com.tony.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import com.tony.dao.EmployeeDao;
 import com.tony.model.Employee;
 //@Component
-//@Service
+@Service
 //@ComponentScan
 //@Configuration
 public class EmployeeService implements IEmployeeService{

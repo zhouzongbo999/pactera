@@ -12,10 +12,10 @@
 		<project.build.encoding>UTF-8</project.build.encoding>
 
 		<!-- Servlet -->
-		<servlet.version>3.0.1</servlet.version>
+		<servlet.version>3.1.0</servlet.version>
 
 		<!-- Spring -->
-		<spring.framework.version>4.0.7.RELEASE</spring.framework.version>
+		<spring.framework.version>4.1.2.RELEASE</spring.framework.version>
 		<spring.security.version>3.2.4.RELEASE</spring.security.version>
 		<spring.data.jpa.version>1.6.4.RELEASE</spring.data.jpa.version>
 		<spring.data.mongodb.version>1.5.4.RELEASE</spring.data.mongodb.version>
@@ -73,13 +73,14 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<version>${mysql.version}</version>
 		</dependency>
+		<!-- 与spring webmvc 内 servlet 冲突 -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
 			<version>${servlet.version}</version>
 		</dependency>
 		<dependency>
-			<groupId>javax.servlet</groupId>
+			<groupId>jstl</groupId>
 			<artifactId>jstl</artifactId>
 			<version>${jstl.version}</version>
 		</dependency>
